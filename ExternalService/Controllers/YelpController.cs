@@ -22,11 +22,20 @@ namespace ExternalService.Controllers
 
         [HttpGet]
         [Route("search")]
-        public IHttpActionResult GetYelpSearchResult(string term, string city, string zipCode)
+        public IHttpActionResult GetYelpSearchResult(string term, 
+                                                     string city, 
+                                                     string state = "",
+                                                     string zipCode = "")
         {
-            var result = _yelpClient.GetYelpSearchResult(term, city, zipCode);
-
-            return Ok(result);
+            try
+            {
+                var result = _yelpClient.GetYelpSearchResult(term, city, state, zipCode);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, JsonConvert.SerializeObject(e));
+            }
 
         }
     }

@@ -14,7 +14,7 @@ namespace ExternalService.Models.YelpService
         public string url { get; set; }
         public int review_count { get; set; }
         public List<Category> categories { get; set; }
-        public int rating { get; set; }
+        public string rating { get; set; }
         public Coordinates coordinates { get; set; }
         public string[] transactions { get; set; }
         public Location location { get; set; }

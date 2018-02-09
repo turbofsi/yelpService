@@ -4,6 +4,6 @@ namespace ExternalService.Clients
 {
     public interface IYelpRestApiClient
     {
-        YelpSearchResult GetYelpSearchResult(string term, string city, string zipCode);
+        YelpSearchResult GetYelpSearchResult(string term, string city, string state, string zipCode);
     }
 }
